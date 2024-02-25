@@ -9,12 +9,16 @@ const getAll = catchError(async(req, res) => {
 
 const create = catchError(async(req, res) => {
     const { first_name, last_name, email, password, birthday } = req.body;
+
+    const birthdayDate = new Date(birthday);
+    const formattedBirthday = new Date(birthdayDate.toDateString());
+
     const users = await Users.create({
         first_name: first_name,
         last_name: last_name,
         email: email,
         password: password,
-        birthday: birthday
+        birthday: formattedBirthday
     });
     return res.status(201).json(users);
 });
