@@ -23,7 +23,7 @@ const Users = sequelize.define('users', {
         // allowNull por defecto esta en true
     },
     birthday: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.DATE,
         allowNull: false
         // allowNull por defecto esta en true
     }
